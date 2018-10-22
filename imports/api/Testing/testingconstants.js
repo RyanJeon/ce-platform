@@ -2937,6 +2937,54 @@ let EXPERIENCES = {
         function: sendNotificationFoodFight.toString()
     }]
   },
+  complete_menu2: {
+   _id: Random.id(),
+   name: "Complete a booklist!",
+   participateTemplate: "scavengerHuntParticipate",
+   resultsTemplate: "scavengerHunt",
+   contributionTypes: [
+     {
+       needName: "Nonfiction",
+       situation: {
+         detector: getDetectorId(DETECTORS.library),
+         number: 1 //At least 2 should be there
+       },
+       toPass: {
+         instruction: "Take a picture of your nonfiction book"
+       },
+       numberNeeded: 1 //50 photos before completed
+     },
+     {
+       needName: "Romance",
+       situation: {
+         detector: getDetectorId(DETECTORS.library),
+         number: 1 //At least 2 should be there
+       },
+       toPass: {
+         instruction: "Can you take a photo of your romance novel?"
+       },
+       numberNeeded: 1 //50 photos before completed
+     },
+     {
+       needName: "Fiction",
+       situation: {
+         detector: getDetectorId(DETECTORS.library),
+         number: 1 //At least 2 should be there
+       },
+       toPass: {
+         instruction: "Can you take a photo of what your nonficiton novel?"
+       },
+       numberNeeded: 1 //50 photos before completed
+     }
+
+   ],
+   description: "Complete a Booklist!",
+   notificationText: "Complete a Booklist!",
+   callbacks: [{
+       trigger: "cb.incidentFinished()",
+       function: sendNotificationFoodFight.toString()
+   }]
+ },
 
   halfhalf_classroom: {
     _id: Random.id(),
@@ -3027,7 +3075,7 @@ let EXPERIENCES = {
   //       trigger: 'cb.incidentFinished()',
   //       function: sendNotification.toString()
   //     }]
-    
+
   // },
 
   sunset_across: {

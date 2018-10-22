@@ -51,7 +51,8 @@ xolvio:cleaner
 accounts-base@1.4.2
 practicalmeteor:chai
 erasaur:meteor-lodash
-dynamic-import@0.3.0
+dynamic-import@0.3.1
 useraccounts:iron-routing
 aldeed:template-extension
 useraccounts:bootstrap
+underscore
