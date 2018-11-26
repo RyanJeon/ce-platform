@@ -60,19 +60,24 @@ function checkExpired(timeToExpiration, submissionID){
 	expirationDate.setHours(offset+timeToExpiration);
 	var today = new Date();
 	var expired = (today-expirationDate)>0;
-	// expired = true; -> Used for running tests
+	expired = true;  // USED FOR TESTING
 	return expired;
 }
 
 function updateExperience(experienceID){
 	print("Updating Experience with new detector");
-	db.experiences.update({_id: experienceID},{$set: {"contributionTypes.0.situation.detector" : "DETECTOR_ID_HERE"}});
+	var len = db.experiences.find({_id: {$eq: experienceID}})[0].contributionTypes.length;
+	//var tempstr = db.experiences.find({_id: {$eq: experienceID}})[0].detectors;
+	var tempstr = "NEW_DETECTORS_IDS"
+	if(len > 0){
+		db.experiences.update({_id: experienceID},{$set: {"contributionTypes.0.situation.detector" : tempstr}});
+	}
+	if(len > 1){
+		db.experiences.update({_id: experienceID},{$set: {"contributionTypes.1.situation.detector" : tempstr}});
+	}
+	if(len > 2){
+		db.experiences.update({_id: experienceID},{$set: {"contributionTypes.2.situation.detector" : tempstr}});
+	}
 }
 
 // Example Update:     db.experiences.update({_id: id},{$set: {"contributionTypes.0.situation.detector" : "DETECTOR_ID_HERE"}})
-
-
-
-
-
-
