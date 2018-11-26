@@ -79,5 +79,4 @@ function updateExperience(experienceID){
 		db.experiences.update({_id: experienceID},{$set: {"contributionTypes.2.situation.detector" : tempstr}});
 	}
 }
-
 // Example Update:     db.experiences.update({_id: id},{$set: {"contributionTypes.0.situation.detector" : "DETECTOR_ID_HERE"}})
